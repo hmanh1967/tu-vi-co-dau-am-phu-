@@ -41,6 +41,8 @@ Xem tử vi giúp mình theo thông tin sau:
 - Giờ sinh: {{gioSinh}}
 - Nơi sinh: {{noiSinh}}
 - Muốn xem trọng tâm: {{trongTam}}
+
+Tạo 1 ảnh tổng quan và có tử vi tổng quan 3 năm tới
 `.trim();
   return base
     .replaceAll("{{hoTen}}", info.hoTen || "(không cung cấp)")
