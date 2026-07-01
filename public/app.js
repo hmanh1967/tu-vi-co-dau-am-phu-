@@ -1,3 +1,9 @@
+// ====================================================================
+//  LINK TRAILER (Facebook). Dán link video FB vào giữa 2 dấu "".
+//  Để trống "" thì phần trailer tự ẩn.
+const TRAILER_FB_URL = "https://www.facebook.com/share/v/1CuUmfWFJj/";
+// ====================================================================
+
 const $ = (id) => document.getElementById(id);
 const show = (id) => $(id).classList.remove("hidden");
 const hide = (id) => $(id).classList.add("hidden");
@@ -5,6 +11,30 @@ const hide = (id) => $(id).classList.add("hidden");
 let currentId = null;
 let pollTimer = null;
 let currentInfo = null;
+
+function mountTrailer() {
+  const box = $("trailerBox");
+  const frame = $("videoFrame");
+  if (!TRAILER_FB_URL) { box.classList.add("hidden"); return; }
+  if (!frame.dataset.loaded) {
+    const src = "https://www.facebook.com/plugins/video.php?href=" +
+      encodeURIComponent(TRAILER_FB_URL) +
+      "&show_text=false&autoplay=true&mute=true";
+    frame.innerHTML =
+      '<iframe src="' + src + '" scrolling="no" frameborder="0" ' +
+      'allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" ' +
+      'allowfullscreen></iframe>';
+    frame.dataset.loaded = "1";
+  }
+  box.classList.remove("hidden");
+}
+
+function stopTrailer() {
+  const frame = $("videoFrame");
+  frame.innerHTML = "";
+  frame.dataset.loaded = "";
+  $("trailerBox").classList.add("hidden");
+}
 
 $("tuviForm").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -36,6 +66,7 @@ $("tuviForm").addEventListener("submit", async (e) => {
     currentId = data.id;
     hide("formSection");
     show("waitSection");
+    mountTrailer();
     startPolling();
   } catch (err) {
     $("formErr").textContent = err.message;
@@ -60,6 +91,7 @@ async function checkStatus() {
     if (res.ok && data.status === "ready" && data.image) {
       clearInterval(pollTimer);
       $("resultImg").src = data.image;
+      stopTrailer();
       hide("waitSection");
       show("resultSection");
     }
