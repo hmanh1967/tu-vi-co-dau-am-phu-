@@ -19,9 +19,10 @@ body {
   padding: 20px 16px 48px;
   display: flex;
   justify-content: center;
+  overflow-x: hidden;
 }
 
-.wrap { width: 100%; max-width: 480px; }
+.wrap { width: 100%; max-width: 480px; position: relative; z-index: 2; }
 
 header { text-align: center; margin-bottom: 22px; }
 header .eyebrow {
@@ -78,7 +79,6 @@ button.ghost {
 }
 
 .hidden { display: none !important; }
-
 .center { text-align: center; }
 
 .spinner {
@@ -98,3 +98,58 @@ button.ghost {
 .err { color: #ff8080; font-size: 14px; margin-top: 10px; text-align: center; }
 .muted { color: var(--mo); font-size: 13px; margin-top: 8px; }
 footer { text-align: center; color: var(--mo); font-size: 12px; margin-top: 20px; }
+
+/* ============ Trailer ============ */
+.trailer { margin: 18px 0 6px; }
+.trailer-title { font-size: 14px; color: var(--vang-sang); margin-bottom: 8px; }
+.video-frame {
+  position: relative; width: 100%; padding-top: 56.25%;
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(232,185,35,.3);
+  background: #000;
+}
+.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ============ Hieu ung nen (FX) ============ */
+.fx { position: fixed; pointer-events: none; z-index: 0; }
+
+/* Tan lua bay len */
+.embers { inset: 0; overflow: hidden; }
+.embers span {
+  position: absolute; bottom: -12px; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--vang-sang);
+  box-shadow: 0 0 8px 2px rgba(255,120,40,.75);
+  opacity: 0; animation: rise linear infinite;
+}
+@keyframes rise {
+  0%   { transform: translateY(0) scale(1);   opacity: 0; }
+  12%  { opacity: .9; }
+  85%  { opacity: .5; }
+  100% { transform: translateY(-105vh) scale(.35); opacity: 0; }
+}
+.embers span:nth-child(1){left:4%;  animation-duration:10s; animation-delay:0s}
+.embers span:nth-child(2){left:11%; animation-duration:13s; animation-delay:2s; background:var(--do-sang); box-shadow:0 0 8px 2px rgba(255,45,45,.7)}
+.embers span:nth-child(3){left:19%; animation-duration:8s;  animation-delay:1s}
+.embers span:nth-child(4){left:27%; animation-duration:15s; animation-delay:4s}
+.embers span:nth-child(5){left:34%; animation-duration:11s; animation-delay:0s; background:var(--do-sang)}
+.embers span:nth-child(6){left:42%; animation-duration:9s;  animation-delay:3s}
+.embers span:nth-child(7){left:50%; animation-duration:14s; animation-delay:1.5s}
+.embers span:nth-child(8){left:58%; animation-duration:10s; animation-delay:5s; background:var(--do-sang); box-shadow:0 0 8px 2px rgba(255,45,45,.7)}
+.embers span:nth-child(9){left:66%; animation-duration:12s; animation-delay:2s}
+.embers span:nth-child(10){left:73%;animation-duration:8s;  animation-delay:4s}
+.embers span:nth-child(11){left:81%;animation-duration:13s; animation-delay:1s; background:var(--do-sang)}
+.embers span:nth-child(12){left:88%;animation-duration:10s; animation-delay:3.5s}
+.embers span:nth-child(13){left:94%;animation-duration:15s; animation-delay:0s}
+.embers span:nth-child(14){left:15%;animation-duration:11s; animation-delay:6s}
+.embers span:nth-child(15){left:63%;animation-duration:9s;  animation-delay:7s}
+.embers span:nth-child(16){left:38%;animation-duration:14s; animation-delay:8s; background:var(--do-sang)}
+
+/* Cot trang tri hai ben (chi hien tren man rong) */
+.deco { top: 0; height: 100vh; width: 230px; display: none; }
+.deco-left  { left: 0; }
+.deco-right { right: 0; }
+.deco-svg { width: 100%; height: 100%; }
+.lglow { animation: flick 3.5s ease-in-out infinite; transform-origin: center; }
+@keyframes flick { 0%,100% { opacity: 1; } 45% { opacity: .5; } 70% { opacity: .85; } }
+@media (min-width: 1024px) { .deco { display: block; } }
+@media (min-width: 1400px) { .deco { width: 300px; } }
