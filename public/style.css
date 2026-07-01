@@ -153,3 +153,29 @@ footer { text-align: center; color: var(--mo); font-size: 12px; margin-top: 20px
 @keyframes flick { 0%,100% { opacity: 1; } 45% { opacity: .5; } 70% { opacity: .85; } }
 @media (min-width: 1024px) { .deco { display: block; } }
 @media (min-width: 1400px) { .deco { width: 300px; } }
+
+/* ============ Infographic la so ============ */
+.laso {
+  background: linear-gradient(180deg, #17100f, #0e0a0a);
+  border: 1px solid rgba(232,185,35,.35);
+  border-radius: 14px; padding: 22px 18px; text-align: left;
+}
+.laso-head { text-align: center; border-bottom: 1px solid rgba(232,185,35,.25); padding-bottom: 14px; margin-bottom: 16px; }
+.laso-sub { color: var(--vang); letter-spacing: 3px; font-size: 12px; }
+.laso-title { color: var(--do-sang); font-size: 26px; font-weight: 800; text-shadow: 0 0 12px rgba(255,45,45,.5); margin: 2px 0 8px; }
+.laso-name { color: var(--vang-sang); font-size: 18px; font-weight: 700; letter-spacing: 1px; }
+.laso-meta { color: var(--mo); font-size: 12px; margin-top: 6px; }
+.laso-intro { color: #f0d9a0; font-style: italic; text-align: center; font-size: 14px; line-height: 1.5; margin-bottom: 16px; }
+.laso-grid { display: grid; gap: 10px; }
+.laso-item { background: rgba(179,0,0,.08); border: 1px solid rgba(232,185,35,.2); border-left: 3px solid var(--do-sang); border-radius: 8px; padding: 10px 12px; }
+.li-h { color: var(--vang-sang); font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+.laso-item p { color: var(--chu); font-size: 13px; line-height: 1.5; }
+.laso-forecast { margin-top: 18px; }
+.lf-title { text-align: center; color: var(--do-sang); font-weight: 800; letter-spacing: 2px; font-size: 15px; margin-bottom: 10px; }
+.lf-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.lf-col { background: #120d0d; border: 1px solid rgba(232,185,35,.25); border-radius: 8px; padding: 10px 8px; }
+.lf-year { color: var(--vang-sang); font-weight: 800; font-size: 16px; text-align: center; }
+.lf-cc { color: var(--do-sang); font-size: 12px; margin-bottom: 6px; text-align: center; }
+.lf-col p { color: var(--chu); font-size: 11px; line-height: 1.45; }
+.laso-foot { margin-top: 16px; text-align: center; color: var(--mo); font-size: 11px; line-height: 1.5; }
+@media (max-width: 430px) { .lf-cols { grid-template-columns: 1fr; } }
