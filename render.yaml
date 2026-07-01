@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: tu-vi-co-dau-am-phu
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: ADMIN_PASSWORD
+        sync: false        # tu dat mat khau trong Render Dashboard
+      - key: TUVI_PROMPT
+        sync: false        # (tuy chon) dan prompt goi y de nhan vien copy
+      - key: REQUEST_TTL_MS
+        value: "7200000"   # 2 gio

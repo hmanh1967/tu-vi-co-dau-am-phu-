@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Xem Tử Vi | Cô Dâu Âm Phủ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Nhà Ma Âm Phủ Huế</div>
+      <h1>Cô Dâu Âm Phủ<br />Bói Lá Số Định Mệnh</h1>
+      <p>Nhập thông tin để Cô Dâu luận giải vận số cho bạn</p>
+    </header>
+
+    <!-- BUOC 1: FORM -->
+    <section id="formSection" class="card">
+      <form id="tuviForm">
+        <label for="hoTen">Họ và tên (không bắt buộc)</label>
+        <input id="hoTen" name="hoTen" placeholder="Nguyễn Văn A" />
+
+        <label>Giới tính</label>
+        <div class="radio-row">
+          <label><input type="radio" name="gioiTinh" value="Nam" checked /><span>Nam</span></label>
+          <label><input type="radio" name="gioiTinh" value="Nữ" /><span>Nữ</span></label>
+          <label><input type="radio" name="gioiTinh" value="Khác" /><span>Khác</span></label>
+        </div>
+
+        <label for="ngaySinh">Ngày sinh *</label>
+        <input id="ngaySinh" name="ngaySinh" type="date" required />
+
+        <label>Loại lịch</label>
+        <div class="radio-row">
+          <label><input type="radio" name="loaiLich" value="dương lịch" checked /><span>Dương lịch</span></label>
+          <label><input type="radio" name="loaiLich" value="âm lịch" /><span>Âm lịch</span></label>
+        </div>
+
+        <label for="gioSinh">Giờ sinh (nếu nhớ)</label>
+        <input id="gioSinh" name="gioSinh" type="time" />
+
+        <label for="noiSinh">Nơi sinh</label>
+        <input id="noiSinh" name="noiSinh" placeholder="Tỉnh/Thành phố" />
+
+        <label for="trongTam">Muốn xem trọng tâm</label>
+        <select id="trongTam" name="trongTam">
+          <option value="Tổng quan">Tổng quan</option>
+          <option value="Sự nghiệp">Sự nghiệp</option>
+          <option value="Tình duyên">Tình duyên</option>
+          <option value="Tài lộc">Tài lộc</option>
+          <option value="Sức khỏe">Sức khỏe</option>
+          <option value="Học hành - thi cử">Học hành - thi cử</option>
+        </select>
+
+        <button type="submit" class="primary" id="submitBtn">Xin Cô Dâu luận số →</button>
+        <div class="err hidden" id="formErr"></div>
+      </form>
+    </section>
+
+    <!-- BUOC 2: CHO -->
+    <section id="waitSection" class="card center hidden">
+      <div class="spinner"></div>
+      <h2 style="color:var(--vang-sang)">Cô Dâu đang gieo quẻ…</h2>
+      <p class="muted">Vui lòng giữ màn hình này, lá số sẽ hiện trong giây lát.</p>
+    </section>
+
+    <!-- BUOC 3: KET QUA -->
+    <section id="resultSection" class="card center hidden">
+      <h2 style="color:var(--do-sang)">Lá số của bạn</h2>
+      <img id="resultImg" class="result-img" alt="Lá số tử vi" />
+      <button class="primary" id="pdfBtn">⬇ Tải về file PDF</button>
+      <button class="ghost" id="againBtn">Xem cho người khác</button>
+      <p class="muted">Bản luận giải dựa trên hệ thống tử vi truyền thống, chỉ mang tính tham khảo — không phải dự đoán chắc chắn về tương lai.</p>
+    </section>
+
+    <footer>© Nhà Ma Âm Phủ Huế · AEON MALL Huế · 2026</footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

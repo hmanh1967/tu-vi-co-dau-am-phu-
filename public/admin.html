@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin | Cô Dâu Âm Phủ</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .wrap { max-width: 640px; }
+    .req { border:1px solid rgba(232,185,35,.25); border-radius:12px; padding:14px; margin-bottom:14px; background:#120d0d; }
+    .req h3 { color:var(--vang-sang); font-size:16px; }
+    .req .meta { color:var(--mo); font-size:13px; margin:4px 0 10px; }
+    .badge { display:inline-block; font-size:11px; padding:2px 8px; border-radius:999px; }
+    .badge.pending { background:#5a3d00; color:var(--vang-sang); }
+    .badge.ready { background:#0d4d1a; color:#8fffa0; }
+    textarea { width:100%; height:90px; background:#0b0808; color:var(--chu);
+      border:1px solid rgba(232,185,35,.25); border-radius:10px; padding:10px; font-size:13px; }
+    .btnrow { display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; }
+    .btnrow button, .btnrow label.filebtn {
+      flex:1; padding:11px; border-radius:10px; cursor:pointer; font-size:14px; text-align:center;
+      border:1px solid var(--vang); background:transparent; color:var(--vang-sang); }
+    .filebtn input { display:none; }
+    .ok { color:#8fffa0; font-size:13px; margin-top:6px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Trang nhân viên</div>
+      <h1 style="font-size:24px">Bảng điều khiển lá số</h1>
+    </header>
+
+    <section id="loginCard" class="card">
+      <label for="pw">Mật khẩu admin</label>
+      <input id="pw" type="password" placeholder="Nhập mật khẩu" />
+      <button class="primary" id="loginBtn">Đăng nhập</button>
+      <div class="err hidden" id="loginErr"></div>
+    </section>
+
+    <section id="panel" class="hidden">
+      <p class="muted" style="text-align:center">Tự động làm mới mỗi 5 giây · <span id="count">0</span> yêu cầu</p>
+      <div id="list"></div>
+    </section>
+  </div>
+  <script src="admin.js"></script>
+</body>
+</html>
